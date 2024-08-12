@@ -1,4 +1,4 @@
-import { getSession, getStudentsInClassroom } from "../../../lib/actions";
+import { getSession } from "../../../lib/actions";
 import Link from "next/link";
 
 export default async function StudentsInClassroom() {
