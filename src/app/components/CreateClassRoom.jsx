@@ -1,13 +1,12 @@
 import { createClassroom, getSession } from "../../../lib/actions";
 
 async function CreateClassRoom() {
-  // Fetch session data including teachers and students
   const session = await getSession();
 
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-6">Create Classroom</h1>
-      <form action={createClassroom} method="POST" className="space-y-4">
+      <form action={createClassroom} className="space-y-4">
         <div>
           <label className="block text-gray-700">Classroom Name</label>
           <input
@@ -56,20 +55,6 @@ async function CreateClassRoom() {
             {session.teachers.map((teacher) => (
               <option key={teacher.user_id} value={teacher.user_id}>
                 {teacher.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className="block text-gray-700">Select Students</label>
-          <select
-            multiple
-            name="studentIds"
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-          >
-            {session.students.map((student) => (
-              <option key={student.user_id} value={student.user_id}>
-                {student.email}
               </option>
             ))}
           </select>
